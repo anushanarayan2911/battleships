@@ -1,7 +1,16 @@
-public class Controller {
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-    Model model = new Model();
-    View view = new View();
+public class Controller implements ActionListener{
+
+    private Model model;
+    private View view;
+
+    public Controller(Model model, View view) {
+        this.model = model;
+        this.view = view;
+        this.view.OKButton.addActionListener(this);
+    }
 
     public void displayBoard() {
         char[][] board = model.initialiseBoard();
@@ -20,6 +29,12 @@ public class Controller {
     public int battleshipCol() {
         int col = model.battleshipRow();
         return col;
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        String userRow = view.userRowEntry.getText();
+        String userCol = view.userColEntry.getText();
     }
 }
 

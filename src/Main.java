@@ -2,7 +2,7 @@ public class Main {
     public static void main(String[] args) {
         Model model = new Model();
         View view = new View();
-        Controller controller = new Controller();
+        Controller controller = new Controller(model, view);
 
         controller.displayBoard();
         controller.displayInputFields();

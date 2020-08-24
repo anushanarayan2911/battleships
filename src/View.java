@@ -7,10 +7,16 @@ public class View {
 
     private JFrame frame;
     private JPanel panel;
+    public JButton OKButton;
+    public JTextField userRowEntry;
+    public JTextField userColEntry;
 
     public View() {
         frame = new JFrame();
         panel = new JPanel();
+        userRowEntry = new JTextField(10);
+        userColEntry = new JTextField();
+        OKButton = new JButton("OK");
 
         frame.setTitle("Battleships");
         frame.setSize(300, 300);
@@ -35,7 +41,6 @@ public class View {
         JLabel enterRowLabel = new JLabel("Enter Row");
         panel.add(enterRowLabel);
 
-        JTextField userRowEntry = new JTextField(10);
         Dimension d = userRowEntry.getPreferredSize();
         userRowEntry.setMaximumSize(new Dimension(200, d.height));
         panel.add(userRowEntry);
@@ -43,13 +48,10 @@ public class View {
         JLabel enterColLabel = new JLabel("Enter Column");
         panel.add(enterColLabel);
 
-        JTextField userColEntry = new JTextField();
         Dimension dim = userColEntry.getPreferredSize();
         userColEntry.setMaximumSize(new Dimension(200, dim.height));
         panel.add(userColEntry);
 
-        JButton OKButton = new JButton("OK");
         panel.add(OKButton);
-
     }
 }
