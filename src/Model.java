@@ -1,3 +1,5 @@
+import java.util.Random;
+
 public class Model {
 
     public char[][] initialiseBoard() {
@@ -8,6 +10,16 @@ public class Model {
             }
         }
         return board;
+    }
+
+    public int battleshipRow() {
+        Random r = new Random();
+        return r.nextInt(4) + 1;
+    }
+
+    public int battleshipCol() {
+        Random r = new Random();
+        return r.nextInt(4) + 1;
     }
 
 }

@@ -11,5 +11,15 @@ public class Controller {
     public void displayInputFields() {
         view.displayInputFields();
     }
+
+    public int battleshipRow() {
+        int row = model.battleshipRow();
+        return row;
+    }
+
+    public int battleshipCol() {
+        int col = model.battleshipRow();
+        return col;
+    }
 }
 
