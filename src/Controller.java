@@ -5,6 +5,8 @@ public class Controller implements ActionListener{
 
     private Model model;
     private View view;
+    private String userRowEntry;
+    private String userColEntry;
 
     public Controller(Model model, View view) {
         this.model = model;
@@ -31,10 +33,21 @@ public class Controller implements ActionListener{
         return col;
     }
 
+    public void compareValues() {
+        int userRow = Integer.parseInt(userRowEntry) - 1;
+        int userCol = Integer.parseInt(userColEntry) - 1;
+
+        int shipRow = battleshipRow();
+        int shipCol = battleshipCol();
+
+        
+    }
     @Override
     public void actionPerformed(ActionEvent e) {
-        String userRow = view.userRowEntry.getText();
-        String userCol = view.userColEntry.getText();
+        userRowEntry = view.userRowEntry.getText();
+        userColEntry = view.userColEntry.getText();
+
+        compareValues();
     }
 }
 
