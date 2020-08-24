@@ -8,6 +8,8 @@ public class View {
     private JFrame frame;
     private JPanel panel;
     public JButton OKButton;
+    public JLabel enterRowLabel;
+    public JLabel enterColLabel;
     public JTextField userRowEntry;
     public JTextField userColEntry;
 
@@ -38,14 +40,14 @@ public class View {
     }
 
     public void displayInputFields() {
-        JLabel enterRowLabel = new JLabel("Enter Row");
+        enterRowLabel = new JLabel("Enter Row");
         panel.add(enterRowLabel);
 
         Dimension d = userRowEntry.getPreferredSize();
         userRowEntry.setMaximumSize(new Dimension(200, d.height));
         panel.add(userRowEntry);
 
-        JLabel enterColLabel = new JLabel("Enter Column");
+        enterColLabel = new JLabel("Enter Column");
         panel.add(enterColLabel);
 
         Dimension dim = userColEntry.getPreferredSize();
@@ -63,5 +65,13 @@ public class View {
     public void displayLoseMessage() {
         JLabel loseMessage = new JLabel("You missed!");
         panel.add(loseMessage);
+    }
+
+    public void forgetInputFields() {
+        panel.remove(enterRowLabel);
+        panel.remove(enterColLabel);
+        panel.remove(userRowEntry);
+        panel.remove(userColEntry);
+        panel.remove(OKButton);
     }
 }

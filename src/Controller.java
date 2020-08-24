@@ -25,6 +25,8 @@ public class Controller implements ActionListener{
 
     public void displayInputFields() {
         view.displayInputFields();
+        System.out.println(shipRow);
+        System.out.println(shipCol);
     }
 
     public void compareValues(String x, String y) {
@@ -32,11 +34,13 @@ public class Controller implements ActionListener{
         int userCol = Integer.parseInt(y);
 
         if (userRow == shipRow && userCol == shipCol) {
+            view.forgetInputFields();
             view.displayWinMessage();
         } else {
             view.displayLoseMessage();
         }
     }
+
     @Override
     public void actionPerformed(ActionEvent e) {
         userRowEntry = view.userRowEntry.getText();
