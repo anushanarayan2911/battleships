@@ -7,5 +7,9 @@ public class Controller {
         char[][] board = model.initialiseBoard();
         view.displayBoard(board);
     }
+
+    public void displayInputFields() {
+        view.displayInputFields();
+    }
 }
 
