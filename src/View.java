@@ -54,4 +54,14 @@ public class View {
 
         panel.add(OKButton);
     }
+
+    public void displayWinMessage() {
+        JLabel winMessage = new JLabel("You hit the ship!");
+        panel.add(winMessage);
+    }
+
+    public void displayLoseMessage() {
+        JLabel loseMessage = new JLabel("You missed!");
+        panel.add(loseMessage);
+    }
 }
