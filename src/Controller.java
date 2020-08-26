@@ -9,6 +9,8 @@ public class Controller implements ActionListener{
     private String userColEntry;
     private int shipRow;
     private int shipCol;
+    private char[][] board;
+    private int counter = 0;
 
     public Controller(Model model, View view) {
         this.model = model;
@@ -18,15 +20,19 @@ public class Controller implements ActionListener{
         shipCol = model.battleshipCol();
     }
 
-    public void displayBoard() {
-        char[][] board = model.initialiseBoard();
+    public void initialiseBoard() {
+        board = model.initialiseBoard();
+        view.displayBoard(board);
+    }
+
+    public void updateBoard(int x, int y, char character) {
+        view.forgetBoard(board);
+        board = model.updateBoard(x, y, character);
         view.displayBoard(board);
     }
 
     public void displayInputFields() {
         view.displayInputFields();
-        System.out.println(shipRow);
-        System.out.println(shipCol);
     }
 
     public void compareValues(String x, String y) {
@@ -35,9 +41,18 @@ public class Controller implements ActionListener{
 
         if (userRow == shipRow && userCol == shipCol) {
             view.forgetInputFields();
+            view.forgetLoseMessage();
             view.displayWinMessage();
+            updateBoard(userRow, userCol, 'Y');
         } else {
-            view.displayLoseMessage();
+            counter += 1;
+            if (counter == 5) {
+                view.displayGameOverMessage();
+                view.forgetInputFields();
+            } else {
+                view.displayLoseMessage();
+                updateBoard(userRow, userCol, 'X');
+            }
         }
     }
 
